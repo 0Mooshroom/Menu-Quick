@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		4DEF3EB3553C419E2E510468 /* Pods_Menu_Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D94E8FF6920F9068CB4E0A8 /* Pods_Menu_Quick.framework */; };
-		F59DCC9E1F530EAC003C62B5 /* my_header.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F59DCC9D1F530EAC003C62B5 /* my_header.jpg */; };
+		F51408D31F53A6C50049C213 /* my_header.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F51408D21F53A6C50049C213 /* my_header.jpg */; };
+		F51408D51F53AB200049C213 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51408D41F53AB200049C213 /* Launch Screen.storyboard */; };
 		F5B7FC5A1F52ABF40065A5B5 /* QuickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B7FC591F52ABF40065A5B5 /* QuickViewController.swift */; };
 		F5B7FC5E1F52AC8E0065A5B5 /* QuickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B7FC5D1F52AC8E0065A5B5 /* QuickView.swift */; };
 		F5F713C51F51CF48006CDF85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F713C41F51CF48006CDF85 /* AppDelegate.swift */; };
 		F5F713CC1F51CF48006CDF85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5F713CB1F51CF48006CDF85 /* Assets.xcassets */; };
-		F5F713CF1F51CF48006CDF85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5F713CD1F51CF48006CDF85 /* LaunchScreen.storyboard */; };
 		F5F713D71F51CF7D006CDF85 /* QuickSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F713D61F51CF7D006CDF85 /* QuickSetting.swift */; };
 		F5F713DB1F51D71A006CDF85 /* Quick.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F713DA1F51D71A006CDF85 /* Quick.swift */; };
 /* End PBXBuildFile section */
@@ -22,14 +22,14 @@
 		0D94E8FF6920F9068CB4E0A8 /* Pods_Menu_Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Menu_Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDA4172A0183EDD4800F250A /* Pods-Menu-Quick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Menu-Quick.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Menu-Quick/Pods-Menu-Quick.debug.xcconfig"; sourceTree = "<group>"; };
 		EF8135507E4E407F4ABE57F0 /* Pods-Menu-Quick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Menu-Quick.release.xcconfig"; path = "Pods/Target Support Files/Pods-Menu-Quick/Pods-Menu-Quick.release.xcconfig"; sourceTree = "<group>"; };
+		F51408D21F53A6C50049C213 /* my_header.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = my_header.jpg; sourceTree = "<group>"; };
+		F51408D41F53AB200049C213 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		F59D676D1F52CD99007FA337 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Menu-Quick-hczvoxacyzoussfxfottuidupgjl/Build/Products/Debug-iphonesimulator/SnapKit/SnapKit.framework"; sourceTree = "<group>"; };
-		F59DCC9D1F530EAC003C62B5 /* my_header.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = my_header.jpg; path = ../../../../../../Documents/my_header.jpg; sourceTree = "<group>"; };
 		F5B7FC591F52ABF40065A5B5 /* QuickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickViewController.swift; sourceTree = "<group>"; };
 		F5B7FC5D1F52AC8E0065A5B5 /* QuickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickView.swift; sourceTree = "<group>"; };
 		F5F713C11F51CF48006CDF85 /* Menu-Quick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Menu-Quick.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5F713C41F51CF48006CDF85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5F713CB1F51CF48006CDF85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F5F713CE1F51CF48006CDF85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F5F713D01F51CF48006CDF85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5F713D61F51CF7D006CDF85 /* QuickSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSetting.swift; sourceTree = "<group>"; };
 		F5F713DA1F51D71A006CDF85 /* Quick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quick.swift; sourceTree = "<group>"; };
@@ -86,15 +86,15 @@
 		F5F713C31F51CF48006CDF85 /* Menu-Quick */ = {
 			isa = PBXGroup;
 			children = (
-				F59DCC9D1F530EAC003C62B5 /* my_header.jpg */,
+				F51408D21F53A6C50049C213 /* my_header.jpg */,
 				F5F713C41F51CF48006CDF85 /* AppDelegate.swift */,
 				F5B7FC591F52ABF40065A5B5 /* QuickViewController.swift */,
 				F5B7FC5D1F52AC8E0065A5B5 /* QuickView.swift */,
 				F5F713DA1F51D71A006CDF85 /* Quick.swift */,
 				F5F713D61F51CF7D006CDF85 /* QuickSetting.swift */,
 				F5F713CB1F51CF48006CDF85 /* Assets.xcassets */,
-				F5F713CD1F51CF48006CDF85 /* LaunchScreen.storyboard */,
 				F5F713D01F51CF48006CDF85 /* Info.plist */,
+				F51408D41F53AB200049C213 /* Launch Screen.storyboard */,
 			);
 			path = "Menu-Quick";
 			sourceTree = "<group>";
@@ -160,8 +160,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F59DCC9E1F530EAC003C62B5 /* my_header.jpg in Resources */,
-				F5F713CF1F51CF48006CDF85 /* LaunchScreen.storyboard in Resources */,
+				F51408D51F53AB200049C213 /* Launch Screen.storyboard in Resources */,
+				F51408D31F53A6C50049C213 /* my_header.jpg in Resources */,
 				F5F713CC1F51CF48006CDF85 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,17 +230,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		F5F713CD1F51CF48006CDF85 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F5F713CE1F51CF48006CDF85 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F5F713D11F51CF48006CDF85 /* Debug */ = {

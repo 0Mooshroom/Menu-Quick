@@ -52,7 +52,7 @@ class Quick {
     
     // nav标题
     class var menuQuickNavTitle: String {
-        return "Menu-Quick"
+        return "Shortcut-快捷方式"
     }
 }
 

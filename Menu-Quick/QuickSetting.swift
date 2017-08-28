@@ -35,13 +35,6 @@ class QuickSetting {
             SettingEnum.Carrier.rawValue,
             SettingEnum.Notification.rawValue,
             SettingEnum.General.rawValue,
-            SettingEnum.WIFI.rawValue,
-            SettingEnum.Bluetooth.rawValue,
-            SettingEnum.MobileNet.rawValue,
-            SettingEnum.PersonHot.rawValue,
-            SettingEnum.Carrier.rawValue,
-            SettingEnum.Notification.rawValue,
-            SettingEnum.General.rawValue
         ]
     }
     class var items: [String] {
@@ -53,13 +46,18 @@ class QuickSetting {
             "运营商",
             "通知",
             "通用",
-            "WIFI",
-            "蓝牙",
-            "移动网络",
-            "个人热点",
-            "运营商",
-            "通知",
-            "通用",
+        ]
+    }
+
+    class var details: [String] {
+        return [
+            "WIFI的相关设置 - WIFI",
+            "手机蓝牙/车载蓝牙 - Bluetooth",
+            "手机2G/3G/4G网络设置 - MobileNet",
+            "个人移动热点，可以用PC链接上网 - PersonHot",
+            "中国移动、联通、电信 - Carrier",
+            "系统通知、弹窗、下拉的通知条选项 - NotificationCenter",
+            "通用、关于本机、描述文件等配置信息 - General",
         ]
     }
     class var colors: [UIColor] {
