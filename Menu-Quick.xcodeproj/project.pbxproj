@@ -24,6 +24,7 @@
 		EF8135507E4E407F4ABE57F0 /* Pods-Menu-Quick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Menu-Quick.release.xcconfig"; path = "Pods/Target Support Files/Pods-Menu-Quick/Pods-Menu-Quick.release.xcconfig"; sourceTree = "<group>"; };
 		F51408D21F53A6C50049C213 /* my_header.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = my_header.jpg; sourceTree = "<group>"; };
 		F51408D41F53AB200049C213 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		F51408D61F53C7730049C213 /* Meun-Quick-Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Meun-Quick-Bridge.h"; sourceTree = "<group>"; };
 		F59D676D1F52CD99007FA337 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Menu-Quick-hczvoxacyzoussfxfottuidupgjl/Build/Products/Debug-iphonesimulator/SnapKit/SnapKit.framework"; sourceTree = "<group>"; };
 		F5B7FC591F52ABF40065A5B5 /* QuickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickViewController.swift; sourceTree = "<group>"; };
 		F5B7FC5D1F52AC8E0065A5B5 /* QuickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickView.swift; sourceTree = "<group>"; };
@@ -95,6 +96,7 @@
 				F5F713CB1F51CF48006CDF85 /* Assets.xcassets */,
 				F5F713D01F51CF48006CDF85 /* Info.plist */,
 				F51408D41F53AB200049C213 /* Launch Screen.storyboard */,
+				F51408D61F53C7730049C213 /* Meun-Quick-Bridge.h */,
 			);
 			path = "Menu-Quick";
 			sourceTree = "<group>";
@@ -196,7 +198,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		F2F0603DE9E3FE8FB5AB94AA /* [CP] Embed Pods Frameworks */ = {
@@ -346,14 +348,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = L66HLEX6WU;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = " $(inherited) ";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)  ";
 				INFOPLIST_FILE = "Menu-Quick/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zhaoheng.menu-quick";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/zhaoheng/Desktop/swift/Menu-Quick/Menu-Quick/Meun-Quick-Bridge.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Debug;
 		};
@@ -364,14 +368,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = L66HLEX6WU;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = " $(inherited) ";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)  ";
 				INFOPLIST_FILE = "Menu-Quick/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zhaoheng.menu-quick";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/zhaoheng/Desktop/swift/Menu-Quick/Menu-Quick/Meun-Quick-Bridge.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Release;
 		};

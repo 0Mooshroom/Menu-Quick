@@ -27,7 +27,6 @@ class QuickViewController: UIViewController {
 
 extension QuickViewController {
     func stepNavigation() {
-        //self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.navigationController?.navigationBar.barTintColor = UIColor.white
         self.navigationController?.navigationBar.hideBottomHairLine()
         self.navigationItem.title = Quick.menuQuickNavTitle
@@ -36,35 +35,19 @@ extension QuickViewController {
 
 extension QuickViewController {
     func open(_ rawValue: String) {
-        Quick.open(url: QuickSetting.url(rawValue: rawValue))
+        if !Quick.open(url: QuickSetting.url(rawValue: rawValue)) {
+            return
+        }
+        let count = Quick.getCountsFromKey(key: rawValue)
+        Quick.saveCountsFromKey(key: rawValue, value: count + 1)
+        reloadCollection()
     }
 }
-
-
-extension UINavigationBar {
-    
-    func hideBottomHairLine() {
-        let navigationBarImageView = hairLineImageViewInNavigationBar(view: self)
-        navigationBarImageView?.isHidden = true
+extension QuickViewController {
+    // 刷新collection
+    func reloadCollection() {
+        quickView.reloadCollection()
     }
     
-    func showBottomHairLine() {
-        let navigationBarImageView = hairLineImageViewInNavigationBar(view: self)
-        navigationBarImageView?.isHidden = false
-    }
-    
-    func hairLineImageViewInNavigationBar(view: UIView) -> UIImageView? {
-        if view.isKind(of: UIImageView.self) && view.bounds.height <= 1.0 {
-            return (view as! UIImageView)
-        }
-        
-        let subViews = (view.subviews as [UIView])
-        for subView: UIView in subViews {
-            if let imageView: UIImageView = hairLineImageViewInNavigationBar(view: subView) {
-                return imageView
-            }
-        }
-        return nil
-    }
 }
 

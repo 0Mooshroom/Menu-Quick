@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         self.window?.rootViewController = UINavigationController.init(rootViewController: QuickViewController())
         self.window?.backgroundColor = .white
-        
+    
         return true
     }
 

@@ -42,12 +42,20 @@ class QuickView: UIView
         if let tempPressdClosure = pressdClosure {
             eventPressedClosure = tempPressdClosure
         }
+        
         super.init(frame: frame)
         self.addSubview(collectionView)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+//MARK: ------- 操作 ------
+extension QuickView {
+    func reloadCollection() {
+        self.collectionView.reloadData()
     }
 }
 
@@ -60,56 +68,12 @@ extension QuickView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.identifier1.rawValue, for: indexPath) as! QuickSettingCell
-        let text = QuickSetting.items[indexPath.row]
-        let detail = QuickSetting.details[indexPath.row]
-        let color = QuickSetting.colors[indexPath.row % QuickSetting.colors.count]
-        cell.updateTheCell(text: text, color: color, detail: detail)
+        let text = QuickSetting.items[indexPath.row].0
+        let detail = QuickSetting.items[indexPath.row].1
+        let count = QuickSetting.items[indexPath.row].3
+        cell.updateTheCell(text: text, detail: detail, count: count)
         return cell
     }
-    // 头视图
-    /*
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView
-    {
-        let reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderIdentifier.headerIdentifier.rawValue, for: indexPath)
-        if (kind == UICollectionElementKindSectionHeader) {
-            
-            let headImageView = UIImageView(image: UIImage(named: "my_header.jpg"))
-            headImageView.layer.cornerRadius = CGFloat(20.px)
-            headImageView.layer.masksToBounds = true
-            reusableView.addSubview(headImageView)
-            
-            let titleLabel = UILabel()
-            titleLabel.text = Quick.menuQuickNavTitle
-            titleLabel.font = UIFont.systemFont(ofSize: CGFloat(40.px))
-            reusableView.addSubview(titleLabel)
-            
-            let lineView = UIView()
-            lineView.backgroundColor = UIColor(red:0.72, green:0.72, blue:0.72, alpha:1.00)
-            reusableView.addSubview(lineView)
-            
-            let padding = 20.px
-            
-            headImageView.snp.makeConstraints({ (make) in
-                make.left.equalTo(reusableView).offset(padding)
-                make.centerY.equalTo(reusableView)
-                make.size.equalTo(CGSize(width: 40.px, height: 40.px))
-            })
-            titleLabel.snp.makeConstraints({ (make) in
-                make.left.equalTo(headImageView.snp.right).offset(padding)
-                make.right.equalTo(reusableView).offset(-padding)
-                make.height.equalTo(40.px)
-                make.centerY.equalTo(reusableView)
-            })
-            lineView.snp.makeConstraints({ (make) in
-                make.left.right.equalTo(reusableView).offset(0)
-                make.height.equalTo(0.5)
-                make.top.equalTo(reusableView.snp.bottom).offset(-2)
-            })
-            
-        }
-        return reusableView
-    }
-     */
 }
 
 //MARK: ------- UICollectionViewDelegate ------
@@ -119,7 +83,7 @@ extension QuickView: UICollectionViewDelegate {
         guard let closure = eventPressedClosure else {
             return
         }
-        let rawValue = QuickSetting.settingItems[indexPath.row]
+        let rawValue = QuickSetting.items[indexPath.row].2
         closure(rawValue)
     }
 }
@@ -129,28 +93,16 @@ extension QuickView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: Quick.screenWidth, height: 64.px)
     }
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
-//    {
-//        let padding = CGFloat(20.px)
-//        return UIEdgeInsets(top: padding, left: 0, bottom: 0, right: 0)
-//    }
     // 行间距
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
     {
         return CGFloat(0)
     }
-    // 头高度
-    /*
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize
-    {
-        return CGSize(width: Quick.screenWidth, height: 120.px)
-    }
-     */
 }
 
 //MARK: ------- QuickCollectionCell ------
 class QuickSettingCell: UICollectionViewCell {
-
+    
     lazy var titleLabel: UILabel = {
         var label = UILabel()
         label.textColor = UIColor.darkGray
@@ -158,7 +110,7 @@ class QuickSettingCell: UICollectionViewCell {
         return label
     }()
     lazy var detailLabel: UILabel = {
-       var label = UILabel()
+        var label = UILabel()
         label.textColor = UIColor.gray
         label.font = UIFont.systemFont(ofSize: CGFloat(11.px))
         return label
@@ -175,15 +127,13 @@ class QuickSettingCell: UICollectionViewCell {
         label.textAlignment = .center
         label.layer.cornerRadius = CGFloat(10.px)
         label.layer.masksToBounds = true
-        label.text = "\(arc4random_uniform(10))"
         return label
     }()
     
+    var countsLabelWidht: Double = 0.0
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-    }
-    
-    override func layoutSubviews() {
         self.contentView.addSubview(titleLabel)
         self.contentView.addSubview(detailLabel)
         self.contentView.addSubview(lineView)
@@ -207,21 +157,29 @@ class QuickSettingCell: UICollectionViewCell {
             make.bottom.equalTo(self.contentView).offset(-1)
             make.size.equalTo(CGSize(width: Quick.screenWidth, height: 0.5))
         }
-        
     }
     
-    func updateTheCell(text: String?, color: UIColor? = nil, detail: String? = nil) {
+    func updateTheCell(text: String?, detail: String? = nil, count: UInt) {
         if let title = text {
             titleLabel.text = title
-        }
-        if let c = color {
-            countsLabel.backgroundColor = c
         }
         if let d = detail {
             detailLabel.text = d
         }
+        countsLabel.text = String(count)
+        countsLabel.backgroundColor = Quick.getColorWithNumber(number: count)
+        switch count {
+        case 0..<100 :
+            countsLabelWidht = 20
+        case 100..<1000:
+            countsLabelWidht = 30
+        default:
+            countsLabelWidht = 40
+        }
+        countsLabel.snp.updateConstraints({ (make) in
+            make.width.equalTo(countsLabelWidht)
+        })
     }
-    
     
     
     required init?(coder aDecoder: NSCoder) {

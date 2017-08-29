@@ -4,4 +4,5 @@ use_frameworks!
 
 target 'Menu-Quick' do
     pod 'SnapKit', '~> 3.2.0'
+    pod 'YYCache'
 end

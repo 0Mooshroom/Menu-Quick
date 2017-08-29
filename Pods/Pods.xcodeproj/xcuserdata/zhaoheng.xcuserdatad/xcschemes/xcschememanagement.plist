@@ -8,25 +8,31 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>0</integer>
 		</dict>
 		<key>SnapKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
+		</dict>
+		<key>YYCache.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>67AEA3AAB94D1A329E257789894C4893</key>
+		<key>0FEAB2E040FB543EE9EB9F78F54FC381</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9DF26193C3F439015941D5520FD1F766</key>
+		<key>52617D5123E87F2F8F91885F022514A9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8EECA613A9BCCBACA3AD9B762B4803E6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

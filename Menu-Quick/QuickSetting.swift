@@ -26,51 +26,20 @@ class QuickSetting {
         // 通用
         case General = "General"
     }
-    class var settingItems: [String] {
+    static var items: [(String, String, String, UInt)] {
         return [
-            SettingEnum.WIFI.rawValue,
-            SettingEnum.Bluetooth.rawValue,
-            SettingEnum.MobileNet.rawValue,
-            SettingEnum.PersonHot.rawValue,
-            SettingEnum.Carrier.rawValue,
-            SettingEnum.Notification.rawValue,
-            SettingEnum.General.rawValue,
-        ]
+            ("WIFI", "WIFI的相关设置 - WIFI", SettingEnum.WIFI.rawValue, Quick.getCountsFromKey(key: SettingEnum.WIFI.rawValue)),
+            ("蓝牙", "手机蓝牙/车载蓝牙 - Bluetooth", SettingEnum.Bluetooth.rawValue, Quick.getCountsFromKey(key: SettingEnum.Bluetooth.rawValue)),
+            ("移动网络", "手机2G/3G/4G网络设置 - MobileNet", SettingEnum.MobileNet.rawValue, Quick.getCountsFromKey(key: SettingEnum.MobileNet.rawValue)),
+            ("个人热点", "个人移动热点，可以用PC链接上网 - PersonHot", SettingEnum.PersonHot.rawValue, Quick.getCountsFromKey(key: SettingEnum.PersonHot.rawValue)),
+            ("运营商", "中国移动、联通、电信 - Carrier", SettingEnum.Carrier.rawValue, Quick.getCountsFromKey(key: SettingEnum.Carrier.rawValue)),
+            ("通知", "系统通知、弹窗、下拉的通知条选项 - NotificationCenter", SettingEnum.Notification.rawValue, Quick.getCountsFromKey(key: SettingEnum.Notification.rawValue)),
+            ("通用", "通用、关于本机、描述文件等配置信息 - General", SettingEnum.General.rawValue, Quick.getCountsFromKey(key: SettingEnum.General.rawValue))
+        ].sorted(by: { (s1, s2) -> Bool in
+            return s1.2 > s2.2
+        })
     }
-    class var items: [String] {
-        return [
-            "WIFI",
-            "蓝牙",
-            "移动网络",
-            "个人热点",
-            "运营商",
-            "通知",
-            "通用",
-        ]
-    }
-
-    class var details: [String] {
-        return [
-            "WIFI的相关设置 - WIFI",
-            "手机蓝牙/车载蓝牙 - Bluetooth",
-            "手机2G/3G/4G网络设置 - MobileNet",
-            "个人移动热点，可以用PC链接上网 - PersonHot",
-            "中国移动、联通、电信 - Carrier",
-            "系统通知、弹窗、下拉的通知条选项 - NotificationCenter",
-            "通用、关于本机、描述文件等配置信息 - General",
-        ]
-    }
-    class var colors: [UIColor] {
-        return [
-            UIColor(red:0.96, green:0.32, blue:0.31, alpha:1.00),
-            UIColor(red:0.44, green:0.77, blue:0.91, alpha:1.00),
-            UIColor(red:0.92, green:0.81, blue:0.40, alpha:1.00),
-            UIColor(red:0.33, green:0.77, blue:0.71, alpha:1.00),
-            UIColor(red:0.98, green:0.69, blue:0.69, alpha:1.00),
-            UIColor(red:0.00, green:0.63, blue:0.69, alpha:1.00)
-        ]
-    }
-    class var prefix: String {
+    static var prefix: String {
         get {
             if #available(iOS 10, *) {
                 return "App-Prefs:root="
@@ -79,7 +48,7 @@ class QuickSetting {
             }
         }
     }
-    class func url(rawValue: String) -> URL{
+    static func url(rawValue: String) -> URL{
         return URL(string: prefix + rawValue)!
     }
     
